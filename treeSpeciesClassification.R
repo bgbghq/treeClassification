@@ -9,7 +9,8 @@
 
 #---> setup
 # Libraries
-packages = c("httr", "jsonlite","ggplot2","neonUtilities","neonOS","devtools","sf","terra","lidR","data.table")
+packages = c("httr", "jsonlite","ggplot2","neonUtilities","neonOS","devtools","sf","terra","lidR","data.table",
+             "hsdar")
 for(package in packages) {
   if(suppressMessages(!require(package,character.only = T))){
     install.packages(package)
@@ -165,7 +166,7 @@ c3 = vect(c2)
 
 # ----------------------- Hyperspectral data -----------------------------------------------------
 # mask hyperspectral data
-hypPath = "DP3.30006.001/neon-aop-products/2021/FullSite/D03/2021_JERC_6/L3/Spectrometer/Reflectance/"
+hypPath = "../firstTry/DP3.30006.001/neon-aop-products/2021/FullSite/D03/2021_JERC_6/L3/Spectrometer/Reflectance/"
 hypList = list.files(hypPath)
 f = paste0(hypPath, hypList[[1]])
 myEPSG = h5read(f, "/JERC/Reflectance/Metadata/Coordinate_System/EPSG Code")
